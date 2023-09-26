@@ -46,6 +46,7 @@ public class UserTest {
         assertEquals("Smith", user.getFamilyName());
     }
 
+
     @Test
     void testAddFraction() {
         Fraction newFraction = new Fraction(5, 6);
