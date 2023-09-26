@@ -1,6 +1,9 @@
+package es.upm.miw.iwvg_devops.rest;
+
 import es.upm.miw.iwvg_devops.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import es.upm.miw.iwvg_devops.Fraction;
 
 import java.util.ArrayList;
 import java.util.List;
