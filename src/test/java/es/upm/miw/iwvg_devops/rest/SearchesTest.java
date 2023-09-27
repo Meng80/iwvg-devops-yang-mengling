@@ -28,8 +28,14 @@ public class SearchesTest {
     void testFindUserNameBySomeImproperFraction(){
         assertEquals(List.of("Oscar","Ana","Paula"), new Searches().findUserNameBySomeImproperFraction()
                 .collect(Collectors.toList()));
-
     }
+
+    @Test
+    public void testFindFirstDecimalFractionByUserName() {
+        Double result = new Searches().findFirstDecimalFractionByUserName("Oscar");
+        assertEquals(0.0, result, 0.001);
+    }
+
 
 
 }

@@ -3,6 +3,7 @@ package es.upm.miw.iwvg_devops;
 import org.apache.logging.log4j.LogManager;
 import java.util.Objects;
 import java.util.stream.Stream;
+import java.util.Optional;
 
 public class Searches {
 
@@ -27,4 +28,18 @@ public class Searches {
                 .map(user -> user.getName())
                 .distinct();
     }
-}
+
+    public Double findFirstDecimalFractionByUserName(String name){
+        Optional<User> user = new UserDatabase().findAll()
+                .filter(u -> name.equals(u.getName()))
+                .findFirst();
+
+        return user.map(u -> u.getFractions().stream()
+                        .mapToDouble(Fraction::decimal)
+                        .findFirst()
+                        .orElse(0.0))
+                .orElse(0.0);
+      }
+
+    }
+
