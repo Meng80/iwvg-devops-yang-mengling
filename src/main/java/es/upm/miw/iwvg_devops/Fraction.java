@@ -33,7 +33,7 @@ public class Fraction {
         return (double) numerator / denominator;
     }
 
-    public boolean idProper() { return Math.abs(numerator) < Math.abs(denominator); }
+    public boolean isProper() { return Math.abs(numerator) < Math.abs(denominator); }
 
     public boolean isImproper() { return Math.abs(numerator) >= Math.abs(denominator); }
 
@@ -41,6 +41,12 @@ public class Fraction {
 
     public Fraction add(Fraction other){
         int newNumerator = (numerator * other.denominator) + (other.numerator * denominator);
+        int newDenominator = denominator * other.denominator;
+        return new Fraction(newNumerator, newDenominator);
+    }
+
+    public Fraction multiply(Fraction other) {
+        int newNumerator = numerator * other.numerator;
         int newDenominator = denominator * other.denominator;
         return new Fraction(newNumerator, newDenominator);
     }
