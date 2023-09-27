@@ -1,7 +1,6 @@
 package es.upm.miw.iwvg_devops;
+
 import org.apache.logging.log4j.LogManager;
-
-
 import java.util.Objects;
 import java.util.stream.Stream;
 
@@ -19,6 +18,13 @@ public class Searches {
         return new UserDatabase().findAll()
                 .filter(user -> user.getFractions().stream().anyMatch(Fraction::isProper))
                 .map(user -> user.getFamilyName().substring(0, 1))
+                .distinct();
+    }
+
+    public  Stream<String> findUserNameBySomeImproperFraction(){
+        return new UserDatabase().findAll()
+                .filter(user -> user.getFractions().stream().anyMatch(Fraction::isImproper))
+                .map(user -> user.getName())
                 .distinct();
     }
 }
