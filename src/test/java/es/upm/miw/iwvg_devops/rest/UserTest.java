@@ -49,6 +49,16 @@ public class UserTest {
         assertEquals("Smith", user.getFamilyName());
     }
 
+    @Test
+    public void testSetFractions() {
+        List<Fraction> fractions = new ArrayList<>();
+        fractions.add(new Fraction(1, 2));
+        fractions.add(new Fraction(3, 4));
+
+        user.setFractions(fractions);
+        assertEquals(fractions, user.getFractions());
+    }
+
 
     @Test
     void testAddFraction() {
